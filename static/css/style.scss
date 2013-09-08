@@ -1,0 +1,318 @@
+@import 'bourbon/bourbon';
+
+$sansFontFamily: "PT Sans", Helvetica, Arial, sans-serif !default;
+$serifFontFamily: "PT Serif", Georgia, "Times Nhw Roman", Times, serif !default;
+$white: #ffffff;
+$black: #1a1a1a;
+$gray: #dbdbdb;
+$blue: #53a5c6;
+
+@mixin clearfix() {
+  *zoom:1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+body {
+    color: $black;
+    font: {
+        family: $sansFontFamily;
+        size: 16px;
+    }
+    line-height: 23px;
+}
+
+*, *:after, *:before {
+    @include box-sizing(border-box);
+}
+
+::selection {
+    color: $white;
+    background: $blue;
+}
+
+::-moz-selection {
+    color: $white;
+    background: $blue;
+}
+
+a {
+    color: $blue;
+    text-decoration: none;
+    .sx {
+        color: $black;
+    }
+}
+
+#wrap {
+    max-width: 618px;
+    margin: auto;
+}
+
+#brand {
+    margin: 0 0 0 0;
+    color: darken($gray, 25%);
+    text-align: center;
+    border: {
+        top: {
+            width: 1px;
+            style: solid;
+            color: $gray;
+        }
+    }
+    img {
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+}
+
+#search {
+    #search-input {
+        width: 70%;
+        margin: 0 1% 10px 0;
+        padding: 8px 10px;
+        border: {
+            width: 1px;
+            style: solid;
+            color: $gray;
+        }
+        font: {
+            family: inherit;
+        }
+        &:focus {
+            outline: 0;
+            border-color: $blue;
+        }
+    }
+    #search-button {
+        width: 28%;
+        margin: 0 0 40px 0;
+        padding: 8px 0;
+        border: {
+            width: 1px;
+            style: solid;
+            color: $gray;
+        }
+        font: {
+            family: inherit;
+        }
+        background-color: #fff;
+    }
+}
+
+section.entry {
+    margin: 0 0 40px 0;
+    padding: 0 0 10px 0;
+    border: {
+        width: 1px;
+        style: solid;
+        color: $gray;
+    }
+    p {
+        margin: 16px 25px;
+    }
+    ul {
+        display: block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        @include clearfix();
+        li {
+            float: left;
+            margin: 0 0 10px 20px;
+            padding: 5px 20px;
+            border: {
+                width: 1px;
+                style: solid;
+                color: $gray;
+                top: {
+                    width: 0;
+                }
+            }
+            &.spelling {
+                display: inline;
+                cursor: pointer;
+            }
+        }
+    }
+    span {
+        &.sx {
+            margin: 0 0 0 7px;
+            border: {
+                bottom: {
+                    width: 1px;
+                    style: solid;
+                    color: $gray;
+                }
+            }
+            &:hover {
+                border: {
+                    color: $blue;
+                }
+            }
+        }
+        &.vi {
+            &:before {
+                content: '<';
+            }
+            &:after {
+                content: '>';
+            }
+        }
+        &.it {
+            font: {
+                style: italic;
+            }
+        }
+    }
+    .primary {
+        margin: 16px 20px 16px 25px;
+        .secondary {
+            margin: 16px 20px 16px 25px;
+        }
+    }
+    .secondary {
+        margin: 16px 20px 16px 50px;
+        .tertiary {
+            margin: 16px 20px 16px 25px;
+        }
+    }
+    .tertiary {
+        margin: 16px 20px 16px 75px;
+    }
+    .hw {
+        text-align: center;
+        padding: 10px 20px;
+        border: {
+            bottom: {
+                width: 1px;
+                style: solid;
+                color: $gray;
+            }
+        }
+
+    }
+    .vt {
+        color: lighten($black, 40%);
+        font: {
+            family: $serifFontFamily;
+        }
+    }
+    .sd {
+        padding: 0;
+        border: {
+            top: {
+                width: 1px;
+                style: solid;
+                color: $gray;
+            }
+            bottom: {
+                width: 1px;
+                style: solid;
+                color: $gray;
+            }
+        }
+    }
+}
+
+section.suggestion {
+    margin: 0 0 40px 0;
+    border: {
+        width: 1px;
+        style: solid;
+        color: $gray;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+            padding: 16px 25px;
+            border: {
+                bottom: {
+                    width: 1px;
+                    style: solid;
+                    color: $gray;
+                }
+            }
+            &:last-child {
+                border: {
+                    bottom: {
+                        width: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+section.error {
+    margin: 0 0 40px 0;
+    padding: 16px 25px;
+    border: {
+        width: 1px;
+        style: solid;
+        color: $gray;
+    }
+}
+
+/* Fontes */
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('fonts/icomoon.eot');
+    src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.woff') format('woff'),
+        url('fonts/icomoon.ttf') format('truetype'),
+        url('fonts/icomoon.svg#icomoon') format('svg');
+}
+
+[data-icon]:before {
+    font: {
+        family: 'icomoon';
+        size: 11px;
+    }
+    content: attr(data-icon);
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+    #wrap {
+        padding: 0 3%;
+    }
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+    #search {
+        #search-input {
+            width: 100%;
+        }
+        #search-button {
+            width: 100%;
+        }
+    }
+
+}

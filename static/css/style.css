@@ -1,0 +1,183 @@
+body {
+  color: #1a1a1a;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 23px; }
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+::selection {
+  color: white;
+  background: #53a5c6; }
+
+::-moz-selection {
+  color: white;
+  background: #53a5c6; }
+
+a {
+  color: #53a5c6;
+  text-decoration: none; }
+  a .sx {
+    color: #1a1a1a; }
+
+#wrap {
+  max-width: 618px;
+  margin: auto; }
+
+#brand {
+  margin: 0 0 0 0;
+  color: #9b9b9b;
+  text-align: center;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #dbdbdb; }
+  #brand img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px; }
+
+#search #search-input {
+  width: 70%;
+  margin: 0 1% 10px 0;
+  padding: 8px 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dbdbdb;
+  font-family: inherit; }
+  #search #search-input:focus {
+    outline: 0;
+    border-color: #53a5c6; }
+#search #search-button {
+  width: 28%;
+  margin: 0 0 40px 0;
+  padding: 8px 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dbdbdb;
+  font-family: inherit;
+  background-color: #fff; }
+
+section.entry {
+  margin: 0 0 40px 0;
+  padding: 0 0 10px 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dbdbdb; }
+  section.entry p {
+    margin: 16px 25px; }
+  section.entry ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    *zoom: 1; }
+    section.entry ul:before, section.entry ul:after {
+      content: " ";
+      display: table; }
+    section.entry ul:after {
+      clear: both; }
+    section.entry ul li {
+      float: left;
+      margin: 0 0 10px 20px;
+      padding: 5px 20px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #dbdbdb;
+      border-top-width: 0; }
+      section.entry ul li.spelling {
+        display: inline;
+        cursor: pointer; }
+  section.entry span.sx {
+    margin: 0 0 0 7px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dbdbdb; }
+    section.entry span.sx:hover {
+      border-color: #53a5c6; }
+  section.entry span.vi:before {
+    content: '<'; }
+  section.entry span.vi:after {
+    content: '>'; }
+  section.entry span.it {
+    font-style: italic; }
+  section.entry .primary {
+    margin: 16px 20px 16px 25px; }
+    section.entry .primary .secondary {
+      margin: 16px 20px 16px 25px; }
+  section.entry .secondary {
+    margin: 16px 20px 16px 50px; }
+    section.entry .secondary .tertiary {
+      margin: 16px 20px 16px 25px; }
+  section.entry .tertiary {
+    margin: 16px 20px 16px 75px; }
+  section.entry .hw {
+    text-align: center;
+    padding: 10px 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dbdbdb; }
+  section.entry .vt {
+    color: gray;
+    font-family: "PT Serif", Georgia, "Times Nhw Roman", Times, serif; }
+  section.entry .sd {
+    padding: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #dbdbdb;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dbdbdb; }
+
+section.suggestion {
+  margin: 0 0 40px 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dbdbdb; }
+  section.suggestion ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    section.suggestion ul li {
+      padding: 16px 25px;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: #dbdbdb; }
+      section.suggestion ul li:last-child {
+        border-bottom-width: 0; }
+
+section.error {
+  margin: 0 0 40px 0;
+  padding: 16px 25px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dbdbdb; }
+
+/* Fontes */
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot");
+  src: url("fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.ttf") format("truetype"), url("fonts/icomoon.svg#icomoon") format("svg"); }
+
+[data-icon]:before {
+  font-family: 'icomoon';
+  font-size: 11px;
+  content: attr(data-icon); }
+
+/* Large desktop */
+/* Portrait tablet to landscape and desktop */
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  #wrap {
+    padding: 0 3%; } }
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  #search #search-input {
+    width: 100%; }
+  #search #search-button {
+    width: 100%; } }

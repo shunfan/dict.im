@@ -1,0 +1,81 @@
+{% extends layout.html %}
+{% block title %}{{ word }} - Definition of {{ word }} by Dict.im{% end %}
+{% block content %}
+    {% autoescape None %}
+    <div id="search">
+        <input id="search-input" type="text" value="{{ word }}" autocomplete="off" />
+        <button id="search-button">Search</button>
+    </div>
+    {% if dictionary.entry %}
+        {% for entry in dictionary.entry %}
+        <section class="entry">
+            <div class="hw">{{ entry.get('hw') }} {{ entry.get('hindex') }}</div>
+
+            <ul>
+                {% if entry.get('fl') %}<li>{{ entry.get('fl') }}</li>{% end %}
+                {% if entry.get('audio') %}
+                <li id="button-{{ entry.get('audio') }}" class="spelling" data-icon="&#xe000;"></li>
+                <audio id="{{ entry.get('audio') }}" class="spelling" src="{{ entry.get('wav') }}"></audio>
+                {% end %}
+            </ul>
+
+            {% if entry.get('cx') %}<div class="cx"><p>{{ entry.get('cx') }}</p></div>{% end %}
+
+            {% if entry.get('definition') %}
+                {% for definition in entry.get('definition') %}
+                    {% if definition.get('vt') %}<div class="vt"><p>{{ definition.get('vt') }}</p></div>{% end %}
+
+                    {% if definition.get('primary') %}<div class="primary">{{ definition.get('primary') }}.{% end %}
+                    {% if definition.get('secondary') %}<div class="secondary">[{{ definition.get('secondary') }}]{% end %}
+                    {% if definition.get('tertiary') %}<div class="tertiary">({{ definition.get('tertiary') }}){% end %}
+                    {% if definition.get('sd') %}<div class="sd">{% end %}
+
+                    {% if not definition.get('sn') %}<p>{% end %}
+
+                    {% if definition.get('sd') %}<strong>{{ definition.get('sd') }}</strong>{% end %}
+                    {% if definition.get('ssl') %}<strong>{{ definition.get('ssl') }}</strong>{% end %}
+
+                    {{ definition.get('dt') }}
+                    {% if not definition.get('sn') %}</p>{% end %}
+
+                    {% if definition.get('sd') %}</div>{% end %}
+                    {% if definition.get('tertiary') %}</div>{% end %}
+                    {% if definition.get('secondary') %}</div>{% end %}
+                    {% if definition.get('primary') %}</div>{% end %}
+                {% end %}
+            {% end %}
+
+        </section>
+        {% end %}
+    {% end %}
+    {% if dictionary.suggestion %}
+    <section class="suggestion">
+        <ul>
+            {% for suggestion in dictionary.suggestion %}
+            <li><a href="{{ suggestion.lower() }}">{{ suggestion }}</a></li>
+            {% end %}
+        </ul>
+    </section>
+    {% end %}
+    {% if not dictionary.entry and not dictionary.suggestion %}
+    <section class="error">
+        This word is not found in the dictionary.
+    </section>
+    {% end %}
+{% end %}
+{% block js %}
+
+    {% if dictionary.entry %}
+        {% for entry in dictionary.entry %}
+            {% if entry.get('wav') %}
+            $("#button-{{ entry.get('audio') }}").mouseover(function() {
+                $("#{{ entry.get('audio') }}")[0].play();
+            });
+            $("#button-{{ entry.get('audio') }}").click(function() {
+                $("#{{ entry.get('audio') }}")[0].play();
+            });
+            {% end %}
+        {% end %}
+    {% end %}
+
+{% end %}
